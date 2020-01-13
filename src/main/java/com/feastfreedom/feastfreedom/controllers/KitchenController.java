@@ -16,7 +16,7 @@ import com.feastfreedom.feastfreedom.models.Kitchen;
 import com.feastfreedom.feastfreedom.repositories.KitchenRepository;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/kitchens")
 public class KitchenController {
 
 	@Autowired

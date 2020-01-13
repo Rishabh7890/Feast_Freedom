@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Kitchen Details</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div align="center">
+		<div class="jumbotron jumbotron-fluid bg-secondary" style="box-shadow: 0 0 10px black">
+			<h1 style="font-family: Montserrat;" class="display-4 text-light">Please Fill Out Form Details About Your Kitchen
+			</h1>
+		</div>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${kitchen}" method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td class="font-weight-bold" style="font-family: Roboto;">Name
+						:</td>
+					<td><input type="text" class="form-control" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td class="font-weight-bold" style="font-family: Roboto;">Email
+						:</td>
+					<td><input type="text" class="form-control" th:field="*{email}" /></td>
+				</tr>
+				<tr>
+					<td class="font-weight-bold" style="font-family: Roboto;">Days Open
+						:</td>
+					<td><input type="text" class="form-control" th:field="*{daysOpen}" /></td>
+				</tr>
+				<tr>
+					<td class="font-weight-bold" style="font-family: Roboto;">Opening Time
+						:</td>
+					<td><input type="text" class="form-control" value="" th:field="*{openingTime}" /></td>
+				</tr>
+				<tr>
+					<td class="font-weight-bold" style="font-family: Roboto;">Closing Time
+						:</td>
+					<td><input type="text" class="form-control" th:field="*{closingTime}" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-center" style="font-family: Roboto;"><button type="submit"
+							class="btn btn-outline-primary">Save Kitchen</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

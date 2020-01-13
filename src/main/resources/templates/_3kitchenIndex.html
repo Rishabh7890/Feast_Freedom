@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Feast Freedom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div align="center">
+    <div class="jumbotron jumbotron-fluid bg-secondary" style="box-shadow: 0 0 10px black">
+      <h1 style="font-family: Montserrat;" class="display-4 text-light">
+        Page kitchen gets after logging in successfully</h1>
+    </div>
+    <div class="container">
+      <table class="table table-bordered table-striped table-hover" border="1" cellpadding="10"
+        style="font-family: Roboto;">
+        <thead>
+          <tr>
+            <th>Kitchen Name</th>
+            <th>Contact Email</th>
+            <th>Days Open</th>
+            <th>Opening Time</th>
+            <th>Closing Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="kitchen : ${listKitchens}">
+            <td th:text="${kitchen.name}">Kitchen Name</td>
+            <td th:text="${kitchen.email}">Contact Email</td>
+            <td th:text="${kitchen.daysOpen}">Days Open</td>
+            <td th:text="${kitchen.openingTime}">Opening Time</td>
+            <td th:text="${kitchen.closingTime}">Closing Time</td>
+            <td><a th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+                Kitchen</a> &nbsp;&nbsp;&nbsp; <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i
+                  class="fa fa-trash" aria-hidden="true"></i> Delete Kitchen
+              </a>
+              &nbsp;&nbsp;&nbsp; <a class="text-warning" th:href="@{'/change/' + ${kitchen.id}}"><i class="fa fa-adjust"
+                  aria-hidden="true"></i>Edit Kitchen</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- may need to change href when deploying -->
+      <br /> <a href="/newKitchen" class="btn btn-outline-primary">Add New Kitchen</a>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

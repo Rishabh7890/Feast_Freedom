@@ -25,7 +25,7 @@ public class KitchenController {
 	// Create a kitchen
 
 	@PostMapping
-	public Kitchen createKitchen(@RequestBody Kitchen kitchen) {
+	public Kitchen createKitchen(@RequestBody Kitchen kitchen) throws Exception {
 		kr.save(kitchen);
 		return kitchen;
 	}
@@ -39,14 +39,14 @@ public class KitchenController {
 
 	// Get Individual Kitchen
 
-	@GetMapping("/{/kitchenName}")
+	@GetMapping("/{kitchenName}")
 	public Kitchen getKitchen(@PathVariable String kitchenName) {
 		return kr.findByKitchenName(kitchenName);
 	}
 
 	// Update A Kitchen
 
-	@PutMapping("{/kitchenId}")
+	@PutMapping("{kitchenId}")
 	public Kitchen updateKitchen(@RequestBody Kitchen kitchen, @PathVariable String kitchenId) {
 		kitchen.setId(kitchenId);
 		kr.save(kitchen);
@@ -55,7 +55,7 @@ public class KitchenController {
 
 	// Delete A Kitchen
 
-	@DeleteMapping("{/kitchenId}")
+	@DeleteMapping("{kitchenId}")
 	public String deleteKitchen(@PathVariable String kitchenId) {
 		kr.deleteById(kitchenId);
 		return "Kitchen Deleted";

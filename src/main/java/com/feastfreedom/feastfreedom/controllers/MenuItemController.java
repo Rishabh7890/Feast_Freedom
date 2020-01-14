@@ -42,16 +42,16 @@ public class MenuItemController {
 	
 	
 	@PutMapping("/{itemId}") //Update Item by ID
-	public MenuItem updateItem(@RequestBody MenuItem item, @PathVariable String Id) {
-		item.setId(Id);
+	public MenuItem updateItem(@RequestBody MenuItem item, @PathVariable String itemId) {
+		item.setId(itemId);
 		menu.save(item);
 		return item;
 		
 	}
 	
 	@DeleteMapping("/{itemId}")
-	public String deleteItem(@PathVariable String id) {
-		menu.deleteById(id);
+	public String deleteItem(@PathVariable String itemId) {
+		menu.deleteById(itemId);
 		return "Successful Deletion of Item";
 	}
 	

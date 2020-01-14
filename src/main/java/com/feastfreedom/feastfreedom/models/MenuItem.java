@@ -11,7 +11,7 @@ public class MenuItem {
 	
 	private String itemName;
 	private String mealType;
-	private int price;
+	private double price;
 	private String parentKitchen;
 	
 	public String getId() {
@@ -38,7 +38,7 @@ public class MenuItem {
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {

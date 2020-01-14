@@ -17,7 +17,7 @@ import com.feastfreedom.feastfreedom.models.User;
 import com.feastfreedom.feastfreedom.repositories.UserRepository;
 
 @RestController
-@RequestMapping("/Users")
+@RequestMapping("/users")
 public class UserController {
 
 	@Autowired
@@ -25,7 +25,7 @@ public class UserController {
 
 	
 	@PostMapping
-	public User adduser(@RequestBody User User) {
+	public User AddUser(@RequestBody User User) {
 		Us.save(User);
 		return User;
 	}
@@ -35,14 +35,14 @@ public class UserController {
 		return Us.findAll();
 	}
 	
-	@PutMapping("{/UserId}")
+	@PutMapping("{/userId}")
 	public User UpdateUser(@RequestBody User User, @PathVariable String UserId) {
 		User.setId(UserId);
 		Us.save(User);
 		return User;
 	}
 
-	@DeleteMapping("{/UserId}")
+	@DeleteMapping("{/userId}")
 	public String DeleteUser(@PathVariable String UserId) {
 		Us.deleteById(UserId);
 		return "Deleted";

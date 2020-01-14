@@ -3,22 +3,22 @@ package com.feastfreedom.feastfreedom.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "menuItem")
+@Document("MenuItem")
 public class MenuItem {
 	
 	@Id
-	private int itemId;
+	private String id;
 	
-	private int itemName;
+	private String itemName;
 	private String mealType;
 	private int price;
 	private String parentKitchen;
 	
-	public int getItemId() {
-		return itemId;
+	public String getId() {
+		return id;
 	}
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getParentKitchen() {
 		return parentKitchen;
@@ -26,10 +26,10 @@ public class MenuItem {
 	public void setParentKitchen(String parentKitchen) {
 		this.parentKitchen = parentKitchen;
 	}
-	public int getItemName() {
+	public String getItemName() {
 		return itemName;
 	}
-	public void setItemName(int itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 	public String getMealType() {

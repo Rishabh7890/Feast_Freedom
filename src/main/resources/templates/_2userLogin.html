@@ -28,25 +28,25 @@
 		</div>
 
 		<div layout:fragment="content">
-			<form class="form-signin" th:action="@{/user/login}" method="post">
+			<form class="form-signin" th:action="@{/users/login}" method="post">
 				<img class="mb-4"
 					src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg"
 					alt="" width="72" height="72" />
 				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 				<div th:if="${param.error}">Invalid email and password.</div>
 				<div th:if="${param.logout}">You have been logged out.</div>
-				<label for="inputEmail" class="sr-only">Email address</label> <input
-					type="email" name="UserEmail" id="inputEmail" class="form-control"
-					placeholder="Email" required="" /> <label for="inputPassword"
+				<label for="UserEmail" class="sr-only">Email address</label> <input
+					type="email" name="UserEmail" id="UserEmail" class="form-control"
+					placeholder="Email" required="" /> <label for="UserPassword"
 					class="sr-only">Password</label> <input type="password"
-					name="UserPassword" id="inputPassword" class="form-control"
+					name="UserPassword" id="UserPassword" class="form-control"
 					placeholder="Password" required="" />
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Log
 					in</button>
 			</form>
-			<form class="form-signin" th:action="@{/user/signup}" method="get">
-				<button class="btn btn-md btn-success btn-block" type="Submit">Signup
-					Here</button>
+			<form class="form-signin" th:action="@{/users/signup}" method="get">
+				<button class="btn btn-md btn-success btn-block" type="submit">New?
+					Signup Here!</button>
 			</form>
 		</div>
 

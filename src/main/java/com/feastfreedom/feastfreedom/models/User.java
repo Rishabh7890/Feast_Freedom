@@ -1,13 +1,10 @@
 package com.feastfreedom.feastfreedom.models;
 
 import java.util.List;
-import java.util.Set;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 @Document("User")
 public class User {
@@ -22,26 +19,6 @@ public class User {
 	private String UserPassword;
 	private List<MenuItem> orders;
 	private List<MenuItem> cart;
-	private boolean enabled;
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-
-	@DBRef
-	private Set<Role> roles;
 
 	public String getId() {
 		return id;
@@ -71,8 +48,8 @@ public class User {
 		return UserEmail;
 	}
 
-	public void setUserEmail(String userEmail) {
-		UserEmail = userEmail;
+	public void setUserEmail(String UserEmail) {
+		this.UserEmail = UserEmail;
 	}
 
 	public String getUserPassword() {

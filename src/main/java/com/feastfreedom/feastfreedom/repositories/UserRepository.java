@@ -9,4 +9,5 @@ import com.feastfreedom.feastfreedom.models.User;
 public interface UserRepository extends MongoRepository<User, String> {
 	
 	public Optional<User> findById(String Userid);
+	public User findByUserEmail(String UserEmail);
 }

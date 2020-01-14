@@ -3,6 +3,7 @@ package com.feastfreedom.feastfreedom.models;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Kitchen")
@@ -11,6 +12,7 @@ public class Kitchen {
 	@Id
 	private String id;
 
+	@Indexed(name="kitchenName")
 	private String kitchenName;
 	private String kitchenContactEmail;
 	private String kitchenContactPassword;

@@ -35,16 +35,16 @@ public class UserController {
 		return Us.findAll();
 	}
 	
-	@PutMapping("{/userId}")
-	public User UpdateUser(@RequestBody User User, @PathVariable String UserId) {
-		User.setId(UserId);
+	@PutMapping("/{userId}")
+	public User UpdateUser(@RequestBody User User, @PathVariable String userId) {
+		User.setId(userId);
 		Us.save(User);
 		return User;
 	}
 
-	@DeleteMapping("{/userId}")
-	public String DeleteUser(@PathVariable String UserId) {
-		Us.deleteById(UserId);
+	@DeleteMapping("/{userId}")
+	public String DeleteUser(@PathVariable String userId) {
+		Us.deleteById(userId);
 		return "Deleted";
 	}
 

@@ -24,31 +24,28 @@
             <th>Kitchen Name</th>
             <th>Contact Email</th>
             <th>Days Open</th>
-            <th>Opening Time</th>
-            <th>Closing Time</th>
+            <th>Working Hours</th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="kitchen : ${listKitchens}">
-            <td th:text="${kitchen.name}">Kitchen Name</td>
-            <td th:text="${kitchen.email}">Contact Email</td>
-            <td th:text="${kitchen.daysOpen}">Days Open</td>
-            <td th:text="${kitchen.openingTime}">Opening Time</td>
-            <td th:text="${kitchen.closingTime}">Closing Time</td>
-            <td><a th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add
-                Kitchen</a> &nbsp;&nbsp;&nbsp; <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i
+            <td th:text="${kitchen.kitchenName}">Kitchen Name</td>
+            <td th:text="${kitchen.kitchenContactEmail}">Contact Email</td>
+            <td th:text="${kitchen.kitchenWorkingDay}">Days Open</td>
+            <td th:text="${kitchen.kitchenWorkingHours}">Operating Hours</td>
+            <td><a th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust"
+                  aria-hidden="true"></i> Edit Kitchen</a> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i
                   class="fa fa-trash" aria-hidden="true"></i> Delete Kitchen
               </a>
-              &nbsp;&nbsp;&nbsp; <a class="text-warning" th:href="@{'/change/' + ${kitchen.id}}"><i class="fa fa-adjust"
-                  aria-hidden="true"></i>Edit Kitchen</a></td>
+           </td>
           </tr>
         </tbody>
       </table>
       <!-- may need to change href when deploying -->
       <br /> <a href="/newKitchen" class="btn btn-outline-primary">Add New Kitchen</a>
     </div>
-
-
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

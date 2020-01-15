@@ -21,6 +21,10 @@
   <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
   <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
 
   <style>
     .bd-placeholder-img {
@@ -44,13 +48,53 @@
   <form class="form-signin">
     <img class="mb-4" src="https://i.pinimg.com/originals/21/d1/15/21d115b67ba4b0f4ec61e45fde02cb65.jpg" alt=""
       width="210" height="210">
-    <h1>listing the selected menu items from cart and show total price</h1>
-	 <button class="btn btn-lg btn-primary btn-block" type="submit">Let's eat</button>
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Not hungry now!</button>
-	<br>
-    <br>
-	<br>
-	<br>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">Product 1</h4>
+										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">$1.99</td>
+							<td data-th="Quantity">
+								<input type="number" class="form-control text-center" value="1">
+							</td>
+							<td data-th="Subtotal" class="text-center">1.99</td>
+							<td class="actions" data-th="">
+								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Still Hungry?</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+							<td><a href="#" class="btn btn-success btn-block">Let's eat! <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+</div>
 	 <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>

@@ -36,15 +36,15 @@ public class UserController {
 	}
 	
 	@PutMapping("/{userId}")
-	public User UpdateUser(@RequestBody User User, @PathVariable String userId) {
-		User.setId(userId);
+	public User UpdateUser(@RequestBody User User, @PathVariable String UserId) {
+		User.setId(UserId);
 		Us.save(User);
 		return User;
 	}
 
 	@DeleteMapping("/{userId}")
-	public String DeleteUser(@PathVariable String userId) {
-		Us.deleteById(userId);
+	public String DeleteUser(@PathVariable String UserId) {
+		Us.deleteById(UserId);
 		return "Deleted";
 	}
 

@@ -13,20 +13,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.feastfreedom.feastfreedom.mailService;
 import com.feastfreedom.feastfreedom.models.User;
 import com.feastfreedom.feastfreedom.repositories.UserRepository;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserController extends User {
 
 	@Autowired
 	UserRepository Us;
 
 	
 	@PostMapping
-	public User AddUser(@RequestBody User User) {
+	public User AddUser(@RequestBody User User) throws Exception{
 		Us.save(User);
+		mailService.userCreated(getUserEmail());
 		return User;
 	}
 

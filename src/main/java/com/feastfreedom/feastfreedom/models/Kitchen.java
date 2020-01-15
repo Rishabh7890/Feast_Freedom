@@ -12,12 +12,22 @@ public class Kitchen {
 	@Id
 	private String id;
 
-	@Indexed(name="kitchenName")
+	@Indexed(name = "kitchenName")
 	private String kitchenName;
 	private String kitchenContactEmail;
 	private String kitchenContactPassword;
 	private String kitchenWorkingDays;
 	private String kitchenWorkingHours;
+	private String kitchenImg;
+
+	public String getKitchenImg() {
+		return kitchenImg;
+	}
+
+	public void setKitchenImg(String kitchenImg) {
+		this.kitchenImg = kitchenImg;
+	}
+
 	private List<MenuItem> menu;
 
 	public String getId() {

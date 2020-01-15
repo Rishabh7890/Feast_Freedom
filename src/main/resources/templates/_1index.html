@@ -1,46 +1,84 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="utf-8" />
-<title>Feast Freedom</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-	rel="stylesheet">
+	<meta charset="utf-8" />
+	<title>Feast Freedom</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+	<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+	<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+	<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+	<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+	<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#563d7c">
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<link href="https://getbootstrap.com/docs/4.4/examples/album/album.css" rel="stylesheet">
 </head>
 
 <body>
-	<div align="center">
-		<div class="jumbotron jumbotron-fluid bg-secondary"
-			style="box-shadow: 0 0 10px black">
-			<h1 style="font-family: Montserrat;" class="display-4 text-light">
-				Home Landing Page</h1>
+	<header>
+		<div class="navbar navbar-danger bg-danger shadow-sm">
+			<div class="container d-flex justify-content-between">
+				<i style="font-family: Montserrat;"><strong>
+						The Newest And Easiest Way To Order Delicious Food</strong></i>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+					aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
 		</div>
-		<div class="container">
-			<h1>Pick User or Restaraunt (Kitchen) Here</h1>
+	</header>
 
-			<p>
-				Click <a th:href="@{/users/login}">here</a> to log in.
-			</p>
-			<p>
-				Click <a th:href="@{/users/signup}">here</a> to sign up.
-			</p>
-		</div>
+	<main role="main">
 
+		<section class="jumbotron text-center bg-light">
+			<div class="container">
+				<h1 style="font-family: Montserrat;"><img class="mb-4"
+						src="https://i.pinimg.com/originals/21/d1/15/21d115b67ba4b0f4ec61e45fde02cb65.jpg" alt="" width="72"
+						height="72"> Feast Freedom</h1>
+				<p class="lead text-muted" style="font-family: Montserrat;">Whether you're a Restaraunt looking to expand your
+					business, or just a person looking
+					for some great food we've got you covered!</p>
+				<p>
+					<!-- THYMELEAF LINKS -->
+					<a th:href="@{/users/login}" class="btn btn-danger my-2" style="font-family: Montserrat;">I Am A
+						Restaraunt</a>
+					<a th:href="@{/users/signup}" class="btn btn-dark my-2 text-light" style="font-family: Montserrat;">I Am A
+						Consumer</a>
+				</p>
+			</div>
+		</section>
 
-	</div>
+		<footer class="text-muted" style="font-family: Montserrat;">
+			<div class="container">
+				<p>Project Created &copy; 2020</p>
+				<p>Contributors: Rishabh, Mostafa, Sabareesh</p>
+			</div>
+		</footer>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

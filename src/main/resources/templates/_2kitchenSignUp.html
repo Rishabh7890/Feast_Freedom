@@ -45,7 +45,7 @@
   <form class="form-signin">
     <img class="mb-4" src="https://i.pinimg.com/originals/21/d1/15/21d115b67ba4b0f4ec61e45fde02cb65.jpg" alt=""
       width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">User Sign Up</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Kitchen Sign Up</h1>
     <label for="inputKitchenName" class="sr-only">Name Of Kitchen</label>
     <input type="text" id="inputKitchenName" class="form-control" placeholder="Name Of Kitchen" required>
     <label for="inputKitchenEmail" class="sr-only">Contact Email Address</label>
@@ -93,8 +93,19 @@
       </div>
     </div>
     <hr>
-    </div>
 
+    <!-- Hours go here -->
+    <label for="inputKitchenHours" class="sr-only">Hours</label>
+    <input type="text" id="inputKitchenHours" class="form-control" placeholder="Hours (Example: 10:30AM - 8:00PM)"
+      required>
+
+    <hr>
+
+    <!-- kitchen image -->
+    <div class="form-group">
+      <label for="kitchenImgFile" class="mb-2">Please Upload Image Of Kithcen</label>
+      <input type="file" class="form-control-file" id="kitchenImgFile">
+    </div>
 
     <button class="btn btn-lg btn-success btn-block" type="submit">Sign up</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>

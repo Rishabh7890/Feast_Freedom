@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.feastfreedom.feastfreedom.mailService;
 import com.feastfreedom.feastfreedom.models.Kitchen;
 import com.feastfreedom.feastfreedom.repositories.KitchenRepository;
 
 @RestController
 @RequestMapping("/kitchens")
-public class KitchenController {
+public class KitchenController extends Kitchen{
 
 	@Autowired
 	KitchenRepository kr;
@@ -27,6 +28,7 @@ public class KitchenController {
 	@PostMapping
 	public Kitchen createKitchen(@RequestBody Kitchen kitchen) throws Exception {
 		kr.save(kitchen);
+		mailService.kitchenCreated(getKitchenContactEmail());
 		return kitchen;
 	}
 

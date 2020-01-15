@@ -14,7 +14,7 @@
   <div align="center">
     <div class="jumbotron jumbotron-fluid bg-secondary" style="box-shadow: 0 0 10px black">
       <h1 style="font-family: Montserrat;" class="display-4 text-light">
-        Page kitchen gets after logging in successfully</h1>
+        Kitchen Index</h1>
     </div>
     <div class="container">
       <table class="table table-bordered table-striped table-hover" border="1" cellpadding="10"
@@ -29,17 +29,26 @@
         </thead>
         <tbody>
           <tr th:each="kitchen : ${listKitchens}">
-            <td th:text="${kitchen.kitchenName}">Kitchen Name</td>
-            <td th:text="${kitchen.kitchenContactEmail}">Contact Email</td>
-            <td th:text="${kitchen.kitchenWorkingDay}">Days Open</td>
-            <td th:text="${kitchen.kitchenWorkingHours}">Operating Hours</td>
-            <td><a th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust"
-                  aria-hidden="true"></i> Edit Kitchen</a> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i
-                  class="fa fa-trash" aria-hidden="true"></i> Delete Kitchen
+            <td th:text="${kitchen.kitchenName}"></td>
+            <td th:text="${kitchen.kitchenContactEmail}"></td>
+            <td th:text="${kitchen.kitchenWorkingDay}"></td>
+            <td th:text="${kitchen.kitchenWorkingHours}"></td>
+            <td><a class="text-warning" th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust"
+                  aria-hidden="true"></i> Edit
+                Kitchen</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-trash"
+                  aria-hidden="true"></i> Delete Kitchen
               </a>
-           </td>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="text-primary" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-plus-circle"
+                  aria-hidden="true"></i> Add Menu Item
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="text-success" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-list-ul"
+                  aria-hidden="true"></i> View Orders
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>

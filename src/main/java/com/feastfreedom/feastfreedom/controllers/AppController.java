@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.feastfreedom.feastfreedom.models.Kitchen;
+import com.feastfreedom.feastfreedom.models.User;
 import com.feastfreedom.feastfreedom.repositories.KitchenRepository;
 import com.feastfreedom.feastfreedom.repositories.UserRepository;
 import com.feastfreedom.feastfreedom.repositories.MenuItemReposiotry;
@@ -51,7 +52,15 @@ public class AppController {
 	public String viewUserSignUp(Model model) {
 		return "_2userSignUp.html";
 	}
-
+	
+	
+	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
+	public String saveUser(@ModelAttribute("user") User user) {
+		ur.save(user);
+		return "_3userIndex.html";
+		
+	}
+	
 	@RequestMapping("/kitchenindex")
 	public String viewKitchenIndex(Model model) {
 		List<Kitchen> listKitchens = kr.findAll();

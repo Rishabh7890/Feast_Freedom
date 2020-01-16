@@ -104,9 +104,13 @@ public class AppController {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
 		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
 		User user = ur.findByUserEmail(UserEmail) ;
-		mailService.confMail(UserEmail, KitchenContactEmail);
+		mailService.confMail("mostafabeais215@gmai.com", KitchenContactEmail);
 
 		return conf;
 	}
-
+	
+	@RequestMapping("/vieworders")
+	public String veiwViewOrders(Model model) {
+		return "_4veiwOrders.html";
+	}
 }

@@ -33,21 +33,13 @@
             <td th:text="${kitchen.kitchenContactEmail}"></td>
             <td th:text="${kitchen.kitchenWorkingDay}"></td>
             <td th:text="${kitchen.kitchenWorkingHours}"></td>
-            <td><a class="text-warning" th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust"
-                  aria-hidden="true"></i> Edit
-                Kitchen</a>
+            <td><a class="text-warning" th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust" aria-hidden="true"></i> Edit Kitchen</a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-trash"
-                  aria-hidden="true"></i> Delete Kitchen
-              </a>
+              <a class="text-danger" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-trash"aria-hidden="true"></i> Delete Kitchen</a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="text-primary" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-plus-circle"
-                  aria-hidden="true"></i> Add Menu Item
-              </a>
+              <a class="text-primary" th:href="@{{kitchenName}/addmenuitem}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Menu Item</a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="text-success" th:href="@{'/delete/' + ${kitchen.id}}"><i class="fa fa-list-ul"
-                  aria-hidden="true"></i> View Orders
-              </a>
+              <a class="text-success" th:href="vieworders"><i class="fa fa-list-ul" aria-hidden="true"></i> View Orders</a>
             </td>
           </tr>
         </tbody>

@@ -75,6 +75,15 @@ public class AppController {
 		return mav;
 	}
 
+	@RequestMapping("/{kitchenName}/placeorder")
+	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
+		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
+		Kitchen kitchen = kr.findByKitchenName(kitchenName);
+		mav.addObject("kitchen", kitchen);
+
+		return mav;
+	}
+
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {
 		return "_5kitchenAddSuccess.html";

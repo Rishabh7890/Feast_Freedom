@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Feast Freedom</title>
+  <title>Place An</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -13,18 +13,45 @@
 <body>
   <div align="center">
     <div class="jumbotron jumbotron-fluid bg-secondary" style="box-shadow: 0 0 10px black">
-      <h1 style="font-family: Montserrat;" class="display-4 text-light">
-        User Order Page</h1>
+      <h1 style="font-family: Montserrat;" class="display-4 text-light">Place An Order
+      </h1>
     </div>
+    <br />
+    <!-- WHEN WORKING ON WEB CONTROLLER YOU WILL HAVE TO CHANGE THYMELEAF ACTIONS AND OBJECTS!!! -->
+    <!-- SAME GOES FOR ALL THYMELEAF PAGES... ONLY FRONT END DESIGN IS DONE SO "th:" MAY NOT BE CORRECT -->
     <div class="container">
-      <h1>Specific Kitchen Name, Menu and Order button will go on this page</h1>
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered table-striped table-hover" border="1" cellpadding="10"
+            style="font-family: Roboto;">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Veg/Non-Veg</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each"menuItem : ${listMenuItems}">
+                <td>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                    <label class="custom-control-label" for="customCheck1"></label>
+                  </div>
+                </td>
+                <td th:text="${menuItem.itemName}"></td>
+                <td th:text="${menuItem.mealType}"></td>
+                <td th:text="${menuItem.price}"></td>
+              </tr>
+            </tbody>
+          </table>
+          <br /> <a href="/_5userOrderConfirmation" class="btn btn-outline-primary">Place Order</a>
+        </div>
+      </div>
     </div>
-
-
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

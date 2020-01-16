@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <title>View Orders</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div align="center">
+    <div class="jumbotron jumbotron-fluid bg-secondary" style="box-shadow: 0 0 10px black">
+      <h1 style="font-family: Montserrat;" class="display-4 text-light">
+        Orders</h1>
+    </div>
+    <div class="container">
+      <table class="table table-bordered table-striped table-hover" border="1" cellpadding="10"
+        style="font-family: Roboto;">
+        <thead>
+          <tr>
+            <th>Item Ordered</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="menuItem : ${listMenuItems}">
+            <!-- May need to check following two lines when doing web controller... Not sure about thymeleaf Syntax -->
+            <td th:field="*{menuItem.itemName}"></td>
+            <td th:field="*{menuItem.price}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- may need to change href when deploying... Again not sure about thymeleaf syntax -->
+      <br /> <a th:href="@{/_3kitchenIndex}" class="btn btn-outline-warning">Back</a>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

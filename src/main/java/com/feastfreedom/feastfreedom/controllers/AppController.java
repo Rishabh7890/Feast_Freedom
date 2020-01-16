@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.feastfreedom.feastfreedom.mailService;
 import com.feastfreedom.feastfreedom.models.Kitchen;
 import com.feastfreedom.feastfreedom.models.User;
 import com.feastfreedom.feastfreedom.repositories.KitchenRepository;
@@ -99,8 +100,13 @@ public class AppController {
 	}
 
 	@RequestMapping("/orderconfirmation")
-	public String viewOrderConfirmedPage(Model model) {
-		return "_5userOrderConfirmation.html";
+	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,@PathVariable(name="KitchenContactEmail")String KitchenContactEmail) throws Exception {
+		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
+		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
+		User user = ur.findByUserEmail(UserEmail) ;
+		mailService.confMail(UserEmail, KitchenContactEmail);
+
+		return conf;
 	}
 
 }

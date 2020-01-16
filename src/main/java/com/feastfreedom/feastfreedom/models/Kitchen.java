@@ -86,4 +86,5 @@ public class Kitchen {
 		this.listMenuItems = listMenuItems;
 	}
 
+	public String k=getKitchenContactEmail();
 }

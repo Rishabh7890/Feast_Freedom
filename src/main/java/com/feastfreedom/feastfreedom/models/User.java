@@ -75,5 +75,6 @@ public class User {
 	public void setCart(List<MenuItem> cart) {
 		this.cart = cart;
 	}
+	public String u=getUserEmail();
 
 }

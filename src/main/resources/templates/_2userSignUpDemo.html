@@ -1,42 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="hhtps://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Create New User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.6">
+  <title>User Sign Up</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css" rel="stylesheet">
 </head>
-<body>
-<div align="center">
-<h1>Create New User</h1>
-<br/>
-	
-<form action="#" th:action="@{/saveuser}" th:object="${user}" method="post">
-    <table border="0" cellpadding="10">
-      
-       <tr>
-         <td>First Name:</td>
-         <td><input type="text" th:field= "*{UserFname}"/></td>
-       </tr>
-       <tr>
-         <td>Last Name:</td>
-         <td><input type="text" th:field= "*{UserLname}"/></td>
-       </tr>
-       <tr>
-         <td>UserEmail:</td>
-         <td><input type="text" th:field= "*{UserEmail}"/></td>
-       </tr>
-       <tr>
-         <td>UserPassword:</td>
-         <td><input type="text" th:field= "*{UserPassword}"/></td>
-       </tr>
-       <tr>
-         <td colspan="2"><button type="submit">Save</button></td>
-         
 
-</table>
+<body class="text-center">
+  <div align="center">
+    <h1><img class="mb-4" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" alt=""
+        width="72" height="72">Create New User</h1>
+    <br />
 
-</form>
+    <form class="form-signin">
 
-</div>
+      <form action="#" th:action="@{/saveuser}" th:object="${user}" method="post">
+        <table border="0" cellpadding="10">
+
+          <tr>
+            <td>First Name:</td>
+            <td><input type="text" th:field="*{UserFname}" /></td>
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td><input type="text" th:field="*{UserLname}" /></td>
+          </tr>
+          <tr>
+            <td>UserEmail:</td>
+            <td><input type="text" th:field="*{UserEmail}" /></td>
+          </tr>
+          <tr>
+            <td>UserPassword:</td>
+            <td><input type="text" th:field="*{UserPassword}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+
+
+        </table>
+
+      </form>
+    </form>
+
+
+  </div>
 
 </body>
+
 </html>

@@ -117,7 +117,7 @@ public class AppController {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
 		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
 		User user = ur.findByUserEmail(UserEmail) ;
-		mailService.confMail("mostafabeais215@gmai.com", KitchenContactEmail);
+		mailService.confMail(UserEmail, KitchenContactEmail);
 
 		return conf;
 	}

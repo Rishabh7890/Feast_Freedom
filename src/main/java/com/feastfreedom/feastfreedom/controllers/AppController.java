@@ -52,7 +52,9 @@ public class AppController {
 
 	@RequestMapping("/usersignup")
 	public String viewUserSignUp(Model model) {
-		return "_2userSignUp.html";
+		User user = new User();
+		model.addAttribute("user", user);
+		return "_2userSignUpDemo.html";
 	}
 
 	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)

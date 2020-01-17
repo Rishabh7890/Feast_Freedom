@@ -31,7 +31,7 @@
           <tr th:each="kitchen : ${listKitchens}">
             <td th:text="${kitchen.kitchenName}"></td>
             <td th:text="${kitchen.kitchenContactEmail}"></td>
-            <td th:text="${kitchen.kitchenWorkingDay}"></td>
+            <td th:text="${kitchen.kitchenWorkingDays}"></td>
             <td th:text="${kitchen.kitchenWorkingHours}"></td>
             <td><a class="text-warning" th:href="@{'/edit/' + ${kitchen.id}}"><i class="fa fa-adjust" aria-hidden="true"></i> Edit Kitchen</a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,7 +45,7 @@
         </tbody>
       </table>
       <!-- may need to change href when deploying -->
-      <br /> <a href="/newKitchen" class="btn btn-outline-primary">Add New Kitchen</a>
+      <br /> <a href="/kitchensignup" class="btn btn-outline-primary">Add New Kitchen</a>
     </div>
   </div>
 

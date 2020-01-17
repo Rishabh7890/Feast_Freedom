@@ -56,16 +56,15 @@ public class AppController {
 		model.addAttribute("user", user);
 		return "_2userSignUpDemo.html";
 	}
-	
-	
-	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) throws Exception {
 		ur.save(user);
 		mailService.userCreated(user.getUserEmail());
 		return "redirect:/userindex";
-		
+
 	}
-	
+
 	@RequestMapping("/kitchenindex")
 	public String viewKitchenIndex(Model model) {
 		List<Kitchen> listKitchens = kr.findAll();
@@ -80,7 +79,7 @@ public class AppController {
 		return "_3userIndex.html";
 	}
 
-	@RequestMapping("/{kitchenName}/addmenuitem")
+	@RequestMapping("/addmenuitem/{kitchenName}")
 	public ModelAndView viewAddMenuItemPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4addMenuItem");
 		Kitchen kitchen = kr.findByKitchenName(kitchenName);
@@ -89,18 +88,16 @@ public class AppController {
 		return mav;
 	}
 
-	
-	@RequestMapping("/{kitchenName}/placeorder")
+	@RequestMapping("/placeorder/{kitchenName}")
 	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
 		Kitchen kitchen = kr.findByKitchenName(kitchenName);
-		//mav.addObject("kitchen", kitchen);
-		List<MenuItem>listMenuItems = kitchen.getListMenuItems();
-		mav.addObject("listMenuItems",listMenuItems);
+		mav.addObject("kitchen", kitchen);
+		List<MenuItem> menu = kitchen.getListMenuItems();
+		mav.addObject("listMenuItems", menu);
 
 		return mav;
 	}
-
 
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {
@@ -113,7 +110,8 @@ public class AppController {
 	}
 
 	@RequestMapping("/orderconfirmation")
-	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,@PathVariable(name="KitchenContactEmail")String KitchenContactEmail) throws Exception {
+	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,
+			@PathVariable(name = "KitchenContactEmail") String KitchenContactEmail) throws Exception {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
 		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
 		User user = ur.findByUserEmail(UserEmail) ;
@@ -121,7 +119,7 @@ public class AppController {
 
 		return conf;
 	}
-	
+
 	@RequestMapping("/vieworders")
 	public String veiwViewOrders(Model model) {
 		return "_4veiwOrders.html";

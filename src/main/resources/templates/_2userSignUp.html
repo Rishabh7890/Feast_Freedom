@@ -47,36 +47,30 @@
 
     <form class="form-signin">
       <form action="#" th:action="@{/saveuser}" th:object="${user}" method="post">
-        <img class="mb-4" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" alt=""
-          width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">User Sign Up</h1>
-        <label for="UserFname" class="sr-only">First Name</label>
-        <input type="text" id="UserFname" class="form-control" placeholder="First Name" required />
-        <!--  <input type="text" id="inputFname" class="form-control" placeholder="First Name" required> -->
-        <div class="checkbox mb-3">
-          <label for="UserLname" class="sr-only">Last Name</label>
-          <input type="text" id="UserLname" class="form-control" placeholder="Last Name" required />
-          <!-- <input type="text" id="inputLname" class="form-control" placeholder="Last Name" required> -->
-          <div class="checkbox mb-3">
-            <label for="UserEmail" class="sr-only">Email address</label>
-            <input type="email" id="UserEmail" class="form-control" placeholder="Email Address" required />
-            <!--  <input type="email" id="UserEmail" class="form-control" placeholder="Email address" required autofocus>-->
-            <label for="UserPassword" class="sr-only">Password</label>
-            <input type="password" id="UserPassword" class="form-control" placeholder="Password" required />
-            <!--  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
-            <div class="checkbox mb-3">
-              <label for="UserConfirmPassword" class="sr-only">ConfirmPassword</label>
-              <input type="password" id="UserConfirmPassword" class="form-control" placeholder="Confirm Password"
-                required />
-              <!--  <input type="password" id="UserPassword" class="form-control" placeholder="Confirm Password"
-                required>  -->
-              <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
-              <a class="btn btn-lg btn-success btn-block" href="userindex" type="submit">Sign up</a>
-              <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        <table border="0" cellpadding="10">
+
+          <tr>
+            <td>First Name:</td>
+            <td><input type="text" th:field="*{UserFname}" /></td>
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td><input type="text" th:field="*{UserLname}" /></td>
+          </tr>
+          <tr>
+            <td>UserEmail:</td>
+            <td><input type="text" th:field="*{UserEmail}" /></td>
+          </tr>
+          <tr>
+            <td>UserPassword:</td>
+            <td><input type="text" th:field="*{UserPassword}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+
+
+        </table>
+
       </form>
     </form>
 

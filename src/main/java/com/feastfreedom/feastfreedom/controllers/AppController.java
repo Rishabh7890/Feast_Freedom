@@ -113,9 +113,9 @@ public class AppController {
 	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,
 			@PathVariable(name = "KitchenContactEmail") String KitchenContactEmail) throws Exception {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
-		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail);
-		User user = ur.findByUserEmail(UserEmail);
-		mailService.confMail("mostafabeais215@gmai.com", KitchenContactEmail);
+		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
+		User user = ur.findByUserEmail(UserEmail) ;
+		mailService.confMail(UserEmail, KitchenContactEmail);
 
 		return conf;
 	}

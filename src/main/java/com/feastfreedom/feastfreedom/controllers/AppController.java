@@ -59,8 +59,9 @@ public class AppController {
 	
 	
 	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user") User user) {
+	public String saveUser(@ModelAttribute("user") User user) throws Exception {
 		ur.save(user);
+		mailService.userCreated(user.getUserEmail());
 		return "redirect:/userindex";
 		
 	}
@@ -105,21 +106,11 @@ public class AppController {
 	public String viewAddKitchenSuccessPage(Model model) {
 		return "_5kitchenAddSuccess.html";
 	}
-	/*@RequestMapping("/kitchenadded")
-	public ModelAndView sendRestaurantConfirmationEmail(@PathVariable(name = "KitchenContactEmail") String KitchenContactEmail) throws Exception {
-		mailService.kitchenCreated(KitchenContactEmail);
 
-		return null;
-	}*/
 	@RequestMapping("/useradded")
 	public String viewAddUserSuccessPage(Model model) {
 		return "_4UserAddSuccess.html";
 	}
-	/*@RequestMapping("/useradded")
-	public ModelAndView sendUserConfirmationEmail(@PathVariable(name = "UserEmail") String UserEmail) throws Exception {
-		mailService.userCreated(UserEmail);
-		return null;
-	}*/
 
 	@RequestMapping("/orderconfirmation")
 	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,@PathVariable(name="KitchenContactEmail")String KitchenContactEmail) throws Exception {

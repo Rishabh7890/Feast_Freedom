@@ -19,6 +19,7 @@ public class Kitchen {
 	private String kitchenWorkingDays;
 	private String kitchenWorkingHours;
 	private String kitchenImg;
+	private List<MenuItem> listMenuItems;
 
 	public String getKitchenImg() {
 		return kitchenImg;
@@ -27,8 +28,6 @@ public class Kitchen {
 	public void setKitchenImg(String kitchenImg) {
 		this.kitchenImg = kitchenImg;
 	}
-
-	private List<MenuItem> listMenuItems;
 
 	public String getId() {
 		return id;

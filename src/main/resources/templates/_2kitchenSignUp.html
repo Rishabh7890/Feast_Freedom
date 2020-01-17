@@ -62,13 +62,7 @@
 
       <p>Which Days Are You Open?</p>
 
-		<tr>
-             <td>Newsunday</td>
-               <th:block th:each="sunday : ${sunday}">
-                <input type="checkbox" name="sunday" th:value="${sunday.id}"/>
-                 <label th:text="${sunday.name}"></label>
-               </th:block>
-		</tr>	
+		
       <div class="form-check">
         <input type="checkbox" id="sunday" name="sunday" checked>
         <label for="sunday">Sunday</label>

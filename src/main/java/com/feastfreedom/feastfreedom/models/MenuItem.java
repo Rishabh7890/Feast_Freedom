@@ -1,7 +1,6 @@
 package com.feastfreedom.feastfreedom.models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("MenuItem")
@@ -10,10 +9,9 @@ public class MenuItem {
 	@Id
 	private String id;
 	
-	@Indexed(name="itemName")
 	private String itemName;
 	private String mealType;
-	private double price;
+	private String price;
 	private String parentKitchen;
 	
 	public String getId() {
@@ -40,10 +38,10 @@ public class MenuItem {
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
 	}
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	

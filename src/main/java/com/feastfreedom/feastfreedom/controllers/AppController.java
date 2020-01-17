@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.feastfreedom.feastfreedom.mailService;
 import com.feastfreedom.feastfreedom.models.Kitchen;
+import com.feastfreedom.feastfreedom.models.MenuItem;
 import com.feastfreedom.feastfreedom.models.User;
 import com.feastfreedom.feastfreedom.repositories.KitchenRepository;
 import com.feastfreedom.feastfreedom.repositories.UserRepository;
@@ -85,14 +86,18 @@ public class AppController {
 		return mav;
 	}
 
+	
 	@RequestMapping("/{kitchenName}/placeorder")
 	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
 		Kitchen kitchen = kr.findByKitchenName(kitchenName);
-		mav.addObject("kitchen", kitchen);
+		//mav.addObject("kitchen", kitchen);
+		List<MenuItem>listMenuItems = kitchen.getListMenuItems();
+		mav.addObject("listMenuItems",listMenuItems);
 
 		return mav;
 	}
+
 
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {

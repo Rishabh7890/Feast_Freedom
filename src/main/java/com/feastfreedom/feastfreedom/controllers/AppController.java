@@ -54,16 +54,14 @@ public class AppController {
 	public String viewUserSignUp(Model model) {
 		return "_2userSignUp.html";
 	}
-	
-	
-	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		ur.save(user);
-		mailService.userCreated(UserEmail);
 		return "redirect:/userindex";
-		
+
 	}
-	
+
 	@RequestMapping("/kitchenindex")
 	public String viewKitchenIndex(Model model) {
 		List<Kitchen> listKitchens = kr.findAll();
@@ -78,7 +76,7 @@ public class AppController {
 		return "_3userIndex.html";
 	}
 
-	@RequestMapping("/{kitchenName}/addmenuitem")
+	@RequestMapping("/addmenuitem/{kitchenName}")
 	public ModelAndView viewAddMenuItemPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4addMenuItem");
 		Kitchen kitchen = kr.findByKitchenName(kitchenName);
@@ -87,49 +85,51 @@ public class AppController {
 		return mav;
 	}
 
-	
-	@RequestMapping("/{kitchenName}/placeorder")
+	@RequestMapping("/placeorder/{kitchenName}")
 	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
 		Kitchen kitchen = kr.findByKitchenName(kitchenName);
-		//mav.addObject("kitchen", kitchen);
-		List<MenuItem>listMenuItems = kitchen.getListMenuItems();
-		mav.addObject("listMenuItems",listMenuItems);
+		mav.addObject("kitchen", kitchen);
+		List<MenuItem> menu = kitchen.getListMenuItems();
+		mav.addObject("listMenuItems", menu);
 
 		return mav;
 	}
-
 
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {
 		return "_5kitchenAddSuccess.html";
 	}
-	/*@RequestMapping("/kitchenadded")
-	public ModelAndView sendRestaurantConfirmationEmail(@PathVariable(name = "KitchenContactEmail") String KitchenContactEmail) throws Exception {
-		mailService.kitchenCreated(KitchenContactEmail);
 
-		return null;
-	}*/
+	/*
+	 * @RequestMapping("/kitchenadded") public ModelAndView
+	 * sendRestaurantConfirmationEmail(@PathVariable(name = "KitchenContactEmail")
+	 * String KitchenContactEmail) throws Exception {
+	 * mailService.kitchenCreated(KitchenContactEmail);
+	 * 
+	 * return null; }
+	 */
 	@RequestMapping("/useradded")
 	public String viewAddUserSuccessPage(Model model) {
 		return "_4UserAddSuccess.html";
 	}
-	/*@RequestMapping("/useradded")
-	public ModelAndView sendUserConfirmationEmail(@PathVariable(name = "UserEmail") String UserEmail) throws Exception {
-		mailService.userCreated(UserEmail);
-		return null;
-	}*/
+	/*
+	 * @RequestMapping("/useradded") public ModelAndView
+	 * sendUserConfirmationEmail(@PathVariable(name = "UserEmail") String UserEmail)
+	 * throws Exception { mailService.userCreated(UserEmail); return null; }
+	 */
 
 	@RequestMapping("/orderconfirmation")
-	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,@PathVariable(name="KitchenContactEmail")String KitchenContactEmail) throws Exception {
+	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,
+			@PathVariable(name = "KitchenContactEmail") String KitchenContactEmail) throws Exception {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
-		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail) ;
-		User user = ur.findByUserEmail(UserEmail) ;
+		Kitchen kitchen = kr.findByKitchenContactEmail(KitchenContactEmail);
+		User user = ur.findByUserEmail(UserEmail);
 		mailService.confMail("mostafabeais215@gmai.com", KitchenContactEmail);
 
 		return conf;
 	}
-	
+
 	@RequestMapping("/vieworders")
 	public String veiwViewOrders(Model model) {
 		return "_4veiwOrders.html";

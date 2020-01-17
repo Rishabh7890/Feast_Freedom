@@ -58,6 +58,7 @@ public class AppController {
 	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		ur.save(user);
+		mailService.userCreated(UserEmail);
 		return "redirect:/userindex";
 		
 	}

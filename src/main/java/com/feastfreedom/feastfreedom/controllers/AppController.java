@@ -52,7 +52,7 @@ public class AppController {
 
 	@RequestMapping("/usersignup")
 	public String viewUserSignUp(Model model) {
-		return "_2userSignUp.html";
+		return "_2userSignUpDemo.html";
 	}
 	
 	

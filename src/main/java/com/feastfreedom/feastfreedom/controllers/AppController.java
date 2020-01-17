@@ -56,9 +56,8 @@ public class AppController {
 		model.addAttribute("user", user);
 		return "_2userSignUpDemo.html";
 	}
-	
-	
-	@RequestMapping(value="/saveuser", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) throws Exception {
 		ur.save(user);
 		mailService.userCreated(user.getUserEmail());

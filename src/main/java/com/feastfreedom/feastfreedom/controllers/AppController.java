@@ -1,8 +1,6 @@
 package com.feastfreedom.feastfreedom.controllers;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,7 +78,7 @@ public class AppController {
 		return "_3userIndex.html";
 	}
 
-	
+	/*
 	@RequestMapping("/{kitchenName}/addmenuitem")
 	public ModelAndView viewAddMenuItemPage(@PathVariable(name = "kitchenName") String kitchenName) {
 		ModelAndView mav = new ModelAndView("_4addMenuItem");
@@ -89,22 +87,10 @@ public class AppController {
 
 		return mav;
 	}
-
-	
-	@RequestMapping("/{kitchenName}/placeorder")
-	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
-		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
-		Kitchen kitchen = kr.findByKitchenName(kitchenName);
-		//mav.addObject("kitchen", kitchen);
-		List<MenuItem>listMenuItems = kitchen.getListMenuItems();
-		mav.addObject("listMenuItems",listMenuItems);
-
-		return mav;
-	}
+	*/
 	
 	
-	/*
-	@RequestMapping("/addmenuitem")
+	@RequestMapping("{kitchenName}/addmenuitem")
 	public String viewAddMenuItem(Model model) {
 		MenuItem menu = new MenuItem();
 		model.addAttribute("menu", menu);
@@ -115,10 +101,31 @@ public class AppController {
 	@RequestMapping(value="/savemenuitem", method = RequestMethod.POST)
 	public String saveMenuItem(@ModelAttribute("menu") MenuItem menu) {
 		mir.save(menu);
-		return "redirect:/userindex";
+		return "redirect:/kitchenindex";
 		
 	}
+	
+	/*
+	@RequestMapping("/{kitchenName}/placeorder")
+	public ModelAndView viewUserPlaceOrderPage(@PathVariable(name = "kitchenName") String kitchenName) {
+		ModelAndView mav = new ModelAndView("_4userPlaceOrder");
+		Kitchen kitchen = kr.findByKitchenName(kitchenName);
+		//mav.addObject("kitchen", kitchen);
+		List<MenuItem>listMenuItems = kitchen.getListMenuItems();
+		mav.addObject("listMenuItems",listMenuItems);
+
+		return mav;
+	}
 	*/
+	
+	@RequestMapping("/{kitchenName}/placeorder")
+	public String viewUserPlaceOrderPage(Model model) {
+		List<MenuItem> listMenuItems = mir.findAll();
+		model.addAttribute("listMenuItems", listMenuItems);
+		return "_4userPlaceOrder.html";
+		
+	}
+	
 
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {
@@ -130,6 +137,7 @@ public class AppController {
 		return "_4UserAddSuccess.html";
 	}
 
+	/*
 	@RequestMapping("/orderconfirmation")
 	public ModelAndView viewOrderConfirmedPage(@PathVariable(name = "UserEmail") String UserEmail,@PathVariable(name="KitchenContactEmail")String KitchenContactEmail) throws Exception {
 		ModelAndView conf = new ModelAndView("_5userOrderConfirmation");
@@ -139,6 +147,14 @@ public class AppController {
 
 		return conf;
 	}
+	*/
+	
+	@RequestMapping("/orderconfirmation")
+	public String viewOrderConfirmedPage(Model model) {
+		return "_5userOrderConfirmation.html";
+	}
+	
+	
 	
 	@RequestMapping("/vieworders")
 	public String veiwViewOrders(Model model) {

@@ -33,20 +33,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr th:each"menuItem : ${listMenuItems}">
+              <tr th:each="menuItem : ${listMenuItems}">
                 <td>
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                     <label class="custom-control-label" for="customCheck1"></label>
                   </div>
                 </td>
-                <td th:field="*{menuItem.itemName}"></td>
-                <td th:field="*{menuItem.mealType}"></td>
-                <td th:field="*{menuItem.price}"></td>
+                <td th:text="${menuItem.itemName}"></td>
+                <td th:text="${menuItem.mealType}"></td>
+                <td th:text="${menuItem.price}"></td>
               </tr>
             </tbody>
           </table>
-          <a href="orderconfirmation" class="btn btn-lg btn-success btn-block" type="button">Place
+          <a href="/orderconfirmation" class="btn btn-lg btn-success btn-block" type="button">Place
             Order</a>
 
         </div>

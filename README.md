@@ -1,6 +1,6 @@
 # Feast Freedom
 
-## Check The Application out here [here](http://54.210.233.136:8080/Feast_Freedom/).
+## [Check The Application outhere](http://54.210.233.136:8080/Feast_Freedom/).
 
 ## Description
 

@@ -32,7 +32,12 @@ public class AppController {
 	public String viewHomePage(Model model) {
 		return "_1index.html";
 	}
-
+	
+	@RequestMapping("/Feast_Freedom")
+	public String viewHomePagefeast(Model model) {
+		return "_1index.html";
+	}
+	
 	@RequestMapping("/kitchenlogin")
 	public String viewKitchenLogin(Model model) {
 		return "_2kitchenLogin.html";
@@ -132,6 +137,16 @@ public class AppController {
 		return "_5kitchenAddSuccess.html";
 	}
 
+	/*
+	 	
+	@RequestMapping("/deletecustomer/{kitchen.id}")
+	public String deleteCustomer(@PathVariable(name="customerid") Integer customerid) {
+		service2.delete(customerid);
+		return "redirect:/customer";
+	}
+	
+	 */
+	
 	@RequestMapping("/useradded")
 	public String viewAddUserSuccessPage(Model model) {
 		return "_4UserAddSuccess.html";

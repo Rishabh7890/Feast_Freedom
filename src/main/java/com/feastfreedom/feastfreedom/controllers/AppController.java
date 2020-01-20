@@ -52,6 +52,11 @@ public class AppController {
 	public String viewKitchenSignUp(Model model) {
 		return "_2kitchenSignUp.html";
 	}
+	
+	@RequestMapping("/Feast_Freedom/kitchensignup")
+	public String viewKitchenSignUpfeast(Model model) {
+		return "_2kitchenSignUp.html";
+	}
 
 	@RequestMapping("/usersignup")
 	public String viewUserSignUp(Model model) {
@@ -75,9 +80,23 @@ public class AppController {
 		model.addAttribute("listKitchens", listKitchens);
 		return "_3kitchenIndex.html";
 	}
+	
+	@RequestMapping("/Feast_Freedom/kitchenindex")
+	public String viewKitchenIndexfeast(Model model) {
+		List<Kitchen> listKitchens = kr.findAll();
+		model.addAttribute("listKitchens", listKitchens);
+		return "_3kitchenIndex.html";
+	}
 
 	@RequestMapping("/userindex")
 	public String viewUserIndex(Model model) {
+		List<Kitchen> listKitchens = kr.findAll();
+		model.addAttribute("listKitchens", listKitchens);
+		return "_3userIndex.html";
+	}
+	
+	@RequestMapping("/Feast_Freedom/userindex")
+	public String viewUserIndexfeast(Model model) {
 		List<Kitchen> listKitchens = kr.findAll();
 		model.addAttribute("listKitchens", listKitchens);
 		return "_3userIndex.html";
@@ -131,6 +150,15 @@ public class AppController {
 		
 	}
 	
+	@RequestMapping("/Feast_Freedom/{kitchenName}/placeorder")
+	public String viewUserPlaceOrderPagefeast(Model model) {
+		List<MenuItem> listMenuItems = mir.findAll();
+		model.addAttribute("listMenuItems", listMenuItems);
+		return "_4userPlaceOrder.html";
+		
+	}
+	
+	
 
 	@RequestMapping("/kitchenadded")
 	public String viewAddKitchenSuccessPage(Model model) {
@@ -169,6 +197,10 @@ public class AppController {
 		return "_5userOrderConfirmation.html";
 	}
 	
+	@RequestMapping("/Feast_Freedom/orderconfirmation")
+	public String viewOrderConfirmedPagefeast(Model model) {
+		return "_5userOrderConfirmation.html";
+	}
 	
 	
 	@RequestMapping("/vieworders")

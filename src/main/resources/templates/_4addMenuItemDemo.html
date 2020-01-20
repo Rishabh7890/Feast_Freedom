@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="hhtps://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create New Menu Item</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+</head>
+<body>
+
+ <div class="container-fluid">
+
+    <div align="center">
+      <h1 class="h3 mt-5 font-weight-normal"><img class="mb-4"
+      src="https://images.vexels.com/media/users/3/143047/isolated/preview/b0c9678466af11dd45a62163bdcf03fe-fast-food-hamburger-flat-icon-by-vexels.png"
+      alt="" width="72" height="72"> Create New Menu Item</h1>
+      <br />
+      
+<!--  
+<div align="center">
+<h1>Create New Menu Item</h1>
+<br/>
+-->
+	
+<form action="#" th:action="@{/savemenuitem}" th:object="${menu}" method="post">
+    <table border="0" cellpadding="10">
+      
+       <tr>
+         <td>Item Name:</td>
+         <td><input class="form-control" type="text" placeholder="Fries" th:field= "*{itemName}"/></td>
+       </tr>
+       <tr>
+         <td>Meal Type:</td>
+         <td><input class="form-control" type="text" placeholder="Veg/NonVeg" th:field= "*{mealType}"/></td>
+       </tr>
+       <tr>
+         <td>Price:</td>
+         <td><input class="form-control" type="text" placeholder="$" th:field= "*{price}"/></td>
+       </tr>
+       <tr>
+         <td>Parent Kitchen:</td>
+         <td><input class="form-control" type="text" placeholder="McDonalds" th:field= "*{parentKitchen}"/></td>
+       </tr>
+       <tr>
+            <td colspan="2"><button class="btn btn-lg btn-success btn-block" type="submit">Save</button></td>
+          </tr>
+           <tr>
+            <td colspan="2"><a href="/kitchenindex" class="btn btn-lg btn-danger btn-block" type="button">Cancel</a></td>  
+
+         
+
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>

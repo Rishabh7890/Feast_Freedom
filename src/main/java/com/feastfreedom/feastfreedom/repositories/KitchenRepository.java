@@ -9,5 +9,6 @@ public interface KitchenRepository extends MongoRepository<Kitchen, String> {
 	
 	public Kitchen findByKitchenName(String kitchenName);
 	public Kitchen findByKitchenContactEmail(String kitchenContactEmail);
+	public Kitchen findByKitchenContactPassword(String kitchenContactPassword);
 
 }

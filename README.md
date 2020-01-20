@@ -1,5 +1,7 @@
 # Feast Freedom
 
+## Check The Application out here [here](http://54.210.233.136:8080/Feast_Freedom/).
+
 ## Description
 
 A web application similar to mainstream applications like GrubHub, UberEats and EatStreet. The Application gives Restaurants(Kitchens) and Users separate portals in which they can register. Once registered, Kitchens will become available for users to order from once they have successfully registered as well.
